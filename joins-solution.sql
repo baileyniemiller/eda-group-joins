@@ -31,4 +31,7 @@
     SELECT count(products) FROM products;
     
 -- What is the total available on-hand quantity of diet pepsi?
-    Still working on this one!
+    SELECT products.description, SUM(warehouse_product.on_hand) FROM products
+    JOIN warehouse_product ON warehouse_product.product_id=products.id
+    WHERE products.description = 'diet pepsi'
+    GROUP BY products.description;
